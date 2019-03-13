@@ -6,9 +6,9 @@ import { Button, Card, } from 'semantic-ui-react';
 //   // toggled description will go here.
 // ].join(' ')
 
-const FlashCards = ({ flashCards, remove, update }) => (
+const FlashCards = ({ flashCards, remove, }) => (
 flashCards.map( flashCard => (
-  < FlashCard key={flashCard.id} {...flashCard} remove={remove} update={update}/>
+  < FlashCard key={flashCard.id} {...flashCard} remove={remove}/>
   
 ))
 

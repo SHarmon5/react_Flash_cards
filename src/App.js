@@ -11,6 +11,7 @@ class App extends Component {
       { id: 2, title: "Two", description: "two's info", },
       { id: 3, title: "Three", description: "Three's info", },
     ],
+    showDesc: false,
   };
 
 
