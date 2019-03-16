@@ -4,9 +4,20 @@ import { Form, } from "semantic-ui-react";
 class CardForm extends React.Component {
   state = { title: "", description: "", };
 
+  componentDidMount() {
+    if (this.props.id) {
+      this.setState({ title: this.props.title, description: this.props.description, });
+      }
+    }
+
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.add(this.state);
+    if (this.props.id) {
+      this.props.edit({id: this.props.id, ...this.state});
+      this.props.toggleEdit();
+    } else {
+      this.props.add(this.state);
+    }
     this.setState({ title: "", description: "", });
   }
 
@@ -19,7 +30,7 @@ class CardForm extends React.Component {
       <Form onSubmit={this.handleSubmit}>
         <Form.Group widths="equal">
           <Form.Input 
-            fluid 
+            fluid
             label="Title" 
             placeholder="Title" 
             name="title" 
